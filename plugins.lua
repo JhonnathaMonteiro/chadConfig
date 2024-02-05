@@ -48,41 +48,53 @@ local plugins = {
   },
 
   {
-      "jose-elias-alvarez/null-ls.nvim",
-      ft = "go",
-      opts = function ()
-        return require "custom.configs.null-ls"
-      end
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "go",
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end
   },
 
   {
-      "mfussenegger/nvim-dap",
-      init = function()
-        require("core.utils").load_mappings("dap")
-      end
+    "mfussenegger/nvim-dap",
+    init = function()
+      require("core.utils").load_mappings("dap")
+    end
   },
 
   {
-      "leoluz/nvim-dap-go",
-      ft = "go",
-      dependencies = "mfussenegger/nvim-dap",
-      config = function(_, opts)
-        require("dap-go").setup(opts)
-        require("core.utils").load_mappings("dap_go")
-      end
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      require("core.utils").load_mappings("dap_go")
+    end
    },
 
-   {
-       "olexsmir/gopher.nvim",
-       ft = "go",
-       config = function(_, opts)
-          require("gopher").setup(opts)
-          require("core.utils").load_mappings("gopher")
-       end,
-       build = function()
-         vim.cmd [[silent! GoInstallDeps]]
-       end,
-    },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+       require("gopher").setup(opts)
+       require("core.utils").load_mappings("gopher")
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    -- Lazy load when event occurs. Events are triggered
+    -- as mentioned in:
+    -- https://vi.stackexchange.com/a/4495/20389
+    event = "InsertEnter",
+    -- You can also have it load at immediately at
+    -- startup by commenting above and uncommenting below:
+    lazy = false,
+    opts = overrides.copilot,
+  }
 
   -- To make a plugin not be loaded
   -- {
