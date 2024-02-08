@@ -16,7 +16,17 @@ end
 
 -- 
 -- lspconfig.pyright.setup { blabla}
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
+  },
+}
 
+-- Golang
 lspconfig.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
