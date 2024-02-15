@@ -34,6 +34,12 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
+    },
+    ["<leader>dp"] = {
+      function ()
+        require('dap.ui.widgets').preview();
+      end,
+      "Open preview"
     }
   }
 }
@@ -52,6 +58,30 @@ M.dap_go = {
         require('dap-go').debug_last()
       end,
       "Debug last go test"
+    },
+    ["<F5>"] = {
+      function()
+        require('dap').continue()
+      end,
+      "Debug continue"
+    },
+    ["<F6>"] = {
+      function()
+        require('dap').step_over()
+      end,
+      "Debug step over"
+    },
+    ["<F7>"] = {
+      function()
+        require('dap').step_into()
+      end,
+      "Debug step into"
+    },
+    ["<F8>"] = {
+      function()
+        require('dap').step_out()
+      end,
+      "Debug step out"
     }
   }
 }
