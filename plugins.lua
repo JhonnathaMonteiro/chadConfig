@@ -87,7 +87,7 @@ local plugins = {
 
   {
     "github/copilot.vim",
-    lazy = true, -- to enable at start
+    lazy = false, -- to enable at start
     config = function()
     -- Mapping tab is already used by NvChad       
       vim.g.copilot_no_tab_map = true;
@@ -98,6 +98,11 @@ local plugins = {
     -- -- or run <leader>ch to see copilot mapping section  end   
   },
 
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = false, -- to enable at start
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
