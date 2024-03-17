@@ -37,6 +37,9 @@ M.mason = {
     -- golang
     "gopls",
 
+    -- zig
+    "zls",
+
     -- c/cpp stuff
     "clangd",
     "clang-format",

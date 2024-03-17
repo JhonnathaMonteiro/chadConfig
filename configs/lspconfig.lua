@@ -43,3 +43,12 @@ lspconfig.gopls.setup {
         },
     },
 }
+
+-- Zig
+lspconfig.zls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"zls"},
+    filetypes = {"zig"},
+    root_dir = util.root_pattern("build.zig", ".git"),
+}
