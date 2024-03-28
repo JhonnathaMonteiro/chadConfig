@@ -11,11 +11,14 @@ M.general = {
         require("conform").format()
       end,
       "formatting",
-    }
-
+    },
+    ["<C-b>"] = {
+      "<cmd>cclose<CR>",
+      "Close quickfix",
+    },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 }
 
@@ -25,23 +28,23 @@ M.dap = {
   n = {
     ["<leader>db"] = {
       "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line"
+      "Add breakpoint at line",
     },
     ["<leader>dus"] = {
-      function ()
-        local widgets = require('dap.ui.widgets');
-        local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open();
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
       end,
-      "Open debugging sidebar"
+      "Open debugging sidebar",
     },
     ["<leader>dp"] = {
-      function ()
-        require('dap.ui.widgets').preview();
+      function()
+        require("dap.ui.widgets").preview()
       end,
-      "Open preview"
-    }
-  }
+      "Open preview",
+    },
+  },
 }
 
 M.dap_go = {
@@ -49,41 +52,41 @@ M.dap_go = {
   n = {
     ["<leader>dgt"] = {
       function()
-        require('dap-go').debug_test()
+        require("dap-go").debug_test()
       end,
-      "Debug go test"
+      "Debug go test",
     },
     ["<leader>dgl"] = {
       function()
-        require('dap-go').debug_last()
+        require("dap-go").debug_last()
       end,
-      "Debug last go test"
+      "Debug last go test",
     },
     ["<F5>"] = {
       function()
-        require('dap').continue()
+        require("dap").continue()
       end,
-      "Debug continue"
+      "Debug continue",
     },
     ["<F6>"] = {
       function()
-        require('dap').step_over()
+        require("dap").step_over()
       end,
-      "Debug step over"
+      "Debug step over",
     },
     ["<F7>"] = {
       function()
-        require('dap').step_into()
+        require("dap").step_into()
       end,
-      "Debug step into"
+      "Debug step into",
     },
     ["<F8>"] = {
       function()
-        require('dap').step_out()
+        require("dap").step_out()
       end,
-      "Debug step out"
-    }
-  }
+      "Debug step out",
+    },
+  },
 }
 
 M.gopher = {
@@ -91,25 +94,25 @@ M.gopher = {
   n = {
     ["<leader>gsj"] = {
       "<cmd> GoTagAdd json <CR>",
-      "Add json struct tags"
+      "Add json struct tags",
     },
     ["<leader>gsy"] = {
       "<cmd> GoTagAdd yaml <CR>",
-      "Add yaml struct tags"
-    }
-  }
+      "Add yaml struct tags",
+    },
+  },
 }
 
 M.copilot = {
   i = {
     ["<C-l>"] = {
       function()
-        vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+        vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
       end,
       "Copilot Accept",
-       {replace_keycodes = true, nowait=true, silent=true, expr=true, noremap=true}
-      }
-  }
+      { replace_keycodes = true, nowait = true, silent = true, expr = true, noremap = true },
+    },
+  },
 }
 
 M.lazygit = {
@@ -117,7 +120,7 @@ M.lazygit = {
     ["<leader>gg"] = {
       "<cmd> LazyGit <CR>",
     },
-  }
+  },
 }
 
 return M
